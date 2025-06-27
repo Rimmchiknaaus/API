@@ -22,18 +22,18 @@ body {
     line-height: 1.6;
 }
 
-.container{
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.header{
+.header {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,30 +41,30 @@ body {
     margin-bottom: 20px;
 }
 
-.logo i{
+.logo i {
     font-size: 3rem;
     color: var(--spotify-green);
 }
-.logo h1{
+.logo h1 {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--spotify-white);
 }
 
-.search-section{
+.search-section {
     margin-bottom: 40px;
 }
-.search-container{
+.search-container {
     max-width: 600px;
     margin: 0 auto;
 }
 
-.search-input-group{
+.search-input-group {
     position: relative;
     margin-bottom: 20px;
 }
 
-.search-icon{
+.search-icon {
     position: absolute;
     left: 20px;
     top: 20px;
@@ -73,7 +73,7 @@ body {
     font-size: 1.1rem;
 }
 
-#searchInput{
+#searchInput {
     width: 100%;
     padding: 16px 20px 16px 50px;
     background: var(--spotify-black);
@@ -85,16 +85,16 @@ body {
     transition: all 0.3s ease;
 }
 
-#searchInput:focus{
+#searchInput:focus {
     border-color: var(--spotify-green);
     box-shadow: 0 0 0 3px rgb(29, 185, 84, 0.2);
 }
 
-#searchInput::placeholder{
+#searchInput::placeholder {
     color: var(--spotify-light-gray);
 }
 
-.search-btn{
+.search-btn {
     position: absolute;
     right: 8px;
     top: 8px;
@@ -110,20 +110,20 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
 }
-.search-btn:hover{
+.search-btn:hover {
     background: var(--spotify-hover);
     transform: scale(1.05);
 }
 
 /*Button de filtre*/
-.filter-tabs{
+.filter-tabs {
     display: flex;
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
 }
 
-.tab-btn{
+.tab-btn {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -138,13 +138,13 @@ body {
     transition: all 0.3s ease;
 }
 
-.tab-btn:hover{
+.tab-btn:hover {
     background: var(--spotify-green);
     color: var(--spotify-white);
     border-color:  var(--spotify-green);
 }
 
-.tab-btn.active{
+.tab-btn.active {
     background: var(--spotify-green);
     color: var(--spotify-white);
     border-color:  var(--spotify-green);
@@ -189,7 +189,7 @@ body {
     }
 }
 
-.error{
+.error {
     background: #e22134;
     color: var(--spotify-white);
     padding: 20px;
@@ -202,36 +202,37 @@ body {
     gap: 10px; 
 }
 
-.results-section{
+.results-section {
     margin-bottom: 40px;
 }
 
-#resultsTitle{
+#resultsTitle {
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 25px;
     color: var(--spotify-white);
 }
 
-.results-grid{
+.results-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-.results-card{
+.result-card {
     background: var(--spotify-black);
     border-radius: 15px;
     padding: 20px;
     cursor: pointer;
     border: 1px solid transparent;
+    transition: all 0.3s ease;
 }
-.results-card:hover{
+.result-card:hover {
     background:#282828;
     border-color: var(--spotify-green);
     transform: translateY(-5px);
 }
 
-.card-image{
+.card-image {
     width: 100%;
     aspect-ratio: 1;
     border-radius: 10px;
@@ -240,14 +241,14 @@ body {
     position: relative;
 }
 
-.card-image img{
+.card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.results-card:hover .card-image img{
+.results-card:hover .card-image img {
     transform: scale(1.05);
 }
 
@@ -260,16 +261,23 @@ body {
     white-space: nowrap;
 }
 
-.card-info p{
+.card-info p {
     font-size: 0.9rem;
     color: var(--spotify-gray);
     overflow: hidden;
     white-space: nowrap;
 }
 
-.card-info .popularity{
+.embed-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.card-info .popularity {
     margin-top: 8px;
-    font-size: 0.8px;
+    font-size: 0.8rem;
     color: var(--spotify-green);
 }
 

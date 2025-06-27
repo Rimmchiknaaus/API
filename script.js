@@ -177,20 +177,24 @@ function createResultCard(item, type){
     let title = '';
     let subtitle = '';
     let popularity = '';
+    let trackid = '';
 
     switch(type){
         case 'track':
             image = item.album?.images?.[0]?.url || 'https://via.placeholder.com/640x640';
             title = item.name;
             subtitle = item.artists?.map(artist => artist.name).join(',') || 'Artiste inconnu';
-            popularity = item.popularity? `Popularite: ${item.popularity}%`:'';
+            popularity = item.popularity ? `Popularite: ${item.popularity}%` : '';
+            trackid = item.id;
+            console.log(trackid);
+
             break;
 
         case 'artist':
             image = item.images?.[0]?.url || 'https://via.placeholder.com/640x640';
             title = item.name;
             subtitle = `${item.followers?.total?.toLocaleString() || 0} abonnés`;
-            popularity = item.popularity? `Popularite: ${item.popularity}%`:'';
+            popularity = item.popularity ? `Popularite: ${item.popularity}%` : '';
             break;
 
         case 'album':
@@ -203,18 +207,26 @@ function createResultCard(item, type){
 
     card.innerHTML = `
     <div class="card-image">
-    <img src = "${image}" alt = "${title}" loading = "lazy">
+        <img src = "${image}" alt = "${title}" loading = "lazy">
     </div>
     <div class="card-info">
-    <h3>${title}</h3>
-    <p>${subtitle}</p>
-    ${popularity ? `<div class="popularity">${popularity}</div>` : ''}
-    </div>
-    `;
+        <h3>${title}</h3>
+        <p>${subtitle}</p>
+        <p class="popularity">${popularity}</p> 
+        ${trackid ?
+            `<div class="embed-wrapper" >
+                <iframe src="https://open.spotify.com/embed/track/${trackid}"
+                    width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
+                </iframe>
+        </div>` : ''}
+    </div>`
+
 
     card.addEventListener('click', (e) => {
         window.open(item.external_urls?.spotify, '_blank');
     });
+
+    card.style.margin = '5px';
 
     return card;
 
