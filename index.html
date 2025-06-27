@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Search</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <div class="logo">
+                <i class = 'fab fa-spotify'></i>
+                <h1>Spotify Search</h1>
+            </div>
+        </header>
+
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-input-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                    type="text"
+                    id="searchInput"
+                    placeholder="Recherchez un artiste, un albom ou une chanson..."
+                    autocomplete="off"
+                    >
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-type="track">
+                        <i class="fas fa-music"></i>
+                        Titres
+                    </button>
+                    <button class="tab-btn" data-type="artist">
+                        <i class="fas fa-user"></i>
+                        Artistes
+                    </button>
+                    <button class="tab-btn" data-type="album">
+                        <i class="fas fa-compact-music"></i>
+                        Albums
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div id="loading" class="loading hidden">
+            <div class="spotify-loader">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <p>Recherche en cours...</p>
+            </div>
+        </div>
+
+        <div id="error" class="error hidden">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="erroeMessage"></p>
+        </div>
+
+        <section id="results" class="results-section hidden">
+            <h2 id="resultsTitle"> Résultats de recherch</h2>
+            <div id="resultsGrid" class="results-grid"></div>
+        </section>
+        <section class="instructions">
+            <h3> <i class="fas fa-info-circle"></i>Instruction pour connexion API Spotify</h3>
+            <ol>
+                <li>Créez une application sur <a href="https://developer.spotify.com/dashboard" target="_blank">Spotify Developer Dashboard</a></li>
+                <li>Récupérez votre <strong>Client ID</strong> et <strong>Client Secret</strong></li>
+                <li>Remplacez <code>VOTRE_CLIENT_ID</code> et <code>VOTRE_CLIENT_SECRET</code> dans le fichier JavaScript</li>
+                <li>Lancez un serveur local et testez la recherche !</li>
+            </ol>
+
+            <div class="tech-info">
+                <h4><i class="fas fa-code"></i>Concepts techniques abordés</h4>
+                <ul>
+                    <li><strong>OAuth 2.0</strong> - Authentification Client Credentials</li>
+                    <li><strong>API REST</strong> - Requêtes GET avec en-têtes</li>
+                    <li><strong>JSON</strong> - Manipulation de données complexes</li>
+                    <li><strong>Pagination</strong> - Gestion des résultats multiples</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/026a02d0be.js" crossorigin="anonymous"></script>
+</body>
+</html>
